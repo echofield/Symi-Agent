@@ -29,6 +29,3 @@ Launch the FastAPI server:
 python -m architect.web
 ```
 
-After starting the server you can POST to /spawn to create new agents and use /invoke/<name> to run them.
-
-Configure `config.json` with your LLM credentials (e.g. `{"llm_provider":"openai","openai_api_key":"sk-..."}`).
