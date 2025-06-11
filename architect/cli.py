@@ -9,7 +9,8 @@ import typer
 
 from .agents.oracle import OracleAgent
 from .builder import create_agent_files
-from .metrics import init_sentry
+from .metrics import init_sentry 
+from agents.codex_architect.cli import main as codex_main
 import os
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
@@ -79,7 +80,9 @@ def oracle(limit: int = typer.Option(10)):
 def spawn(description: str, name: str | None = None):
     """Create a new agent from a description."""
     if not name:
-        name = description.lower().replace(" ", "_")
+        name = description.lower().replace(" ", "_") 
+        if agent_name == "codex_architect":
+return codex_main()
         name = ''.join(c for c in name if c.isalnum() or c == '_')[:20]
     agent_dir = create_agent_files(name, description, AGENTS_DIR)
     save_state(name, {"purpose": description, "path": str(agent_dir)})
