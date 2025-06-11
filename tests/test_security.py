@@ -1,3 +1,8 @@
+import pytest
+
+pytest.importorskip("pydantic")
+pytest.importorskip("pydantic_settings")
+
 from config.security import SecurityConfig
 
 

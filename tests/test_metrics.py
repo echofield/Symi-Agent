@@ -1,3 +1,7 @@
+import pytest
+
+pytest.importorskip("prometheus_client")
+
 from architect.metrics import agent_errors
 
 

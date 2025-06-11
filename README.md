@@ -29,3 +29,13 @@ Launch the FastAPI server:
 python -m architect.web
 ```
 
+## Running Tests
+
+Some tests rely on optional packages such as FastAPI and Pydantic. Install the
+``test`` extra to ensure all dependencies are available:
+
+```bash
+pip install -e .[test]
+pytest
+```
+
