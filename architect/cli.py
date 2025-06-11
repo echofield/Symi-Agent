@@ -78,15 +78,17 @@ def oracle(limit: int = typer.Option(10)):
 
 @app.command()
 def spawn(description: str, name: str | None = None):
-    """Create a new agent from a description."""
-    if not name:
-        name = description.lower().replace(" ", "_") 
-        if agent_name == "codex_architect":
-return codex_main()
-        name = ''.join(c for c in name if c.isalnum() or c == '_')[:20]
-    agent_dir = create_agent_files(name, description, AGENTS_DIR)
-    save_state(name, {"purpose": description, "path": str(agent_dir)})
-    typer.echo(f"Created agent {name} at {agent_dir}")
+"""Create a new agent from a description."""
+if not name:
+name = description.lower().replace(" ", "_")
+name = "".join(c for c in name if c.isalnum() or c == "_")[:20]
+
+if name == "codex_architect":
+    return codex_main()
+
+agent_dir = create_agent_files(name, description, AGENTS_DIR)
+save_state(name, {"purpose": description, "path": str(agent_dir)})
+typer.echo(f"Created agent {name} at {agent_dir}")
 
 
 @app.command("list")
