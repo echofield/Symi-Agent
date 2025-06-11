@@ -116,4 +116,4 @@ async def metrics() -> HTMLResponse:
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    uvicorn.run("architect.web:app", host="0.0.0.0", port=8080, reload=False)
