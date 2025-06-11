@@ -10,7 +10,7 @@ import typer
 from .agents.oracle import OracleAgent
 from .builder import create_agent_files
 from .metrics import init_sentry 
-from agents.codex_architect.cli import main as codex_main
+from codex_architect.cli import main as codex_main
 import os
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
