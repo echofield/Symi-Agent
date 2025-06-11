@@ -4,5 +4,6 @@ memory/state.json
 agents/*/__pycache__/
 agents/*/src/__pycache__/
 *.egg-info/
-
+dist/ 
+buil/
 
