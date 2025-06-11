@@ -106,9 +106,16 @@ def list_agents():
     if not STATE_PATH.exists():
         typer.echo("No agents found")
         return
-    state = json.loads(STATE_PATH.read_text())
+
+    try:
+        state = json.loads(STATE_PATH.read_text())
+    except Exception as e:
+        typer.echo(f"⚠️ Failed to read agent state: {e}")
+        return
+
     for name, info in state.items():
         typer.echo(f"{name}: {info.get('purpose')}")
+
 
 
 if __name__ == "__main__":
