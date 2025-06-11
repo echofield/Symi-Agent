@@ -1,7 +1,10 @@
 import json
 from pathlib import Path
-from architect.cli import load_all_agents, save_state, STATE_PATH
 import pytest
+
+pytest.importorskip("typer")
+
+from architect.cli import load_all_agents, save_state, STATE_PATH
 
 def test_load_all_agents(tmp_path, monkeypatch):
     path = tmp_path / 'state.json'
